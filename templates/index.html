@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Balance Checker - XDC Network</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="navbar">
+            <div class="navbar-content">
+                <h1 class="logo">⚡ Wallet Checker</h1>
+                <p class="tagline">XDC Network Balance Scanner</p>
+            </div>
+        </header>
+
+        <main class="main-container">
+            <div class="content-wrapper">
+                <section class="input-card">
+                    <h2>Check Balances</h2>
+                    
+                    <div class="form-group">
+                        <label for="addresses">Wallet Addresses</label>
+                        <textarea id="addresses" placeholder="Enter wallet addresses&#10;xdc... or 0x...&#10;One per line"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Token</label>
+                        <div class="token-buttons">
+                            <button class="token-btn" data-token="XDC">XDC</button>
+                            <button class="token-btn" data-token="VVFIT">VVFIT</button>
+                            <button class="token-btn" data-token="USDT">USDT</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Custom Contract Address (Optional)</label>
+                        <input type="text" id="customToken" placeholder="0x...">
+                    </div>
+
+                    <div class="button-group">
+                        <button id="startBtn" class="btn btn-start">Start Scan</button>
+                        <button id="stopBtn" class="btn btn-stop" disabled>Stop</button>
+                        <button id="clearBtn" class="btn btn-clear">Clear</button>
+                    </div>
+                </section>
+
+                <section class="results-card">
+                    <div class="results-title">
+                        <h2>Results</h2>
+                        <span id="progressText" class="progress-badge"></span>
+                    </div>
+                    <div id="resultsContainer" class="results-list">
+                        <div class="empty-state">
+                            <p>Results will appear here</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="stats-card">
+                    <h2>Summary</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Total XDC</span>
+                            <span id="totalXDC" class="stat-value">0.00</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Total Tokens</span>
+                            <span id="totalTokens" class="stat-value">0.00</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Total Referrals</span>
+                            <span id="totalReferrals" class="stat-value">0</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Wallet Balance Checker | Licensed under MIT</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
